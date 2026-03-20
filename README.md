@@ -1,13 +1,7 @@
-This is a great approach. A comprehensive, visually appealing README is often the first thing an interviewer or faculty member looks at. It sets the tone and proves you understand not just how to write code, but how to document and deploy a system professionally.
 
-Here is a highly detailed, expanded README template. It includes a Table of Contents, detailed explanations of your DevOps implementations, and distinct placeholders where you should insert your image links. 
+# *DevOps Internship Challenge*
 
-Copy the raw markdown below and save it as your `README.md`.
-
-***
-
-```markdown
-# 🚀 Dockerized 3-Tier Application Architecture
+## 🚀 Dockerized 3-Tier Application Architecture
 
 ![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
 ![Nginx](https://img.shields.io/badge/nginx-%23009639.svg?style=for-the-badge&logo=nginx&logoColor=white)
@@ -15,37 +9,31 @@ Copy the raw markdown below and save it as your `README.md`.
 ![MySQL](https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white)
 ![Alpine Linux](https://img.shields.io/badge/Alpine_Linux-%230D597F.svg?style=for-the-badge&logo=alpine-linux&logoColor=white)
 
-[cite_start]A highly resilient, production-ready 3-tier web application containerized using Docker[cite: 2, 4]. [cite_start]This project demonstrates advanced container orchestration, dynamic reverse proxy configuration, strict startup dependency management, and secure multi-stage builds[cite: 17, 19]. 
+**A highly resilient, production-ready 3-tier web application containerized using Docker.**
+*This project demonstrates advanced container orchestration, dynamic reverse proxy configuration, strict startup dependency management, and secure multi-stage builds.* 
 
 ---
-
-## 📑 Table of Contents
-1. [Project Overview](#-project-overview)
-2. [Architecture Diagram](#-architecture-diagram)
-3. [Prerequisites & Setup](#-prerequisites--setup)
-4. [Testing the Application](#-testing-the-application)
-5. [Technical Implementations](#-technical-implementations)
-6. [Resilience & Chaos Testing](#-resilience--chaos-testing)
 
 ---
 
 ## 🌐 Project Overview
 
-[cite_start]This infrastructure is built using three distinct tiers[cite: 14]:
-* [cite_start]**Frontend (Nginx):** Serves a static HTML dashboard and acts as a reverse proxy, forwarding API requests to the backend[cite: 14, 17]. [cite_start]Built on `nginx:alpine`[cite: 14].
-* [cite_start]**Backend (API):** A lightweight API service handling business logic and database health checks[cite: 14, 17]. [cite_start]Built on `node:alpine`[cite: 14].
-* [cite_start]**Database (MySQL):** Persistent storage using the official `mysql:8.0` image with a named Docker volume to prevent data loss[cite: 14, 17].
+This infrastructure is built using three distinct tiers:
+
+**Frontend (Nginx):** Serves a static HTML dashboard and acts as a reverse proxy, forwarding API requests to the backend. Built on `nginx:alpine`.
+
+**Backend (API):** A lightweight API service handling business logic and database health checks. Built on `node:alpine`.
+
+**Database (MySQL):** Persistent storage using the official `mysql:8.0` image with a named Docker volume to prevent data loss.
 
 ---
 
 ## 🏗️ Architecture Diagram
 
-[cite_start]The entire stack is isolated within a custom Docker bridge network, ensuring secure, service-name-based communication[cite: 17]. The database is completely hidden from the public host network.
+*The entire stack is isolated within a custom Docker bridge network, ensuring secure, service-name-based communication. The database is completely hidden from the public host network.*
 
 > **Visual Architecture Flow:**
-> *Replace this placeholder with an actual screenshot or exported image of your architecture diagram.*
-> 
-> ![Architecture Diagram](./assets/architecture-diagram.png)
+
 
 ```text
 +-------------------+       +-------------------+       +-------------------+
@@ -65,48 +53,76 @@ Copy the raw markdown below and save it as your `README.md`.
 
 ## ⚙️ Prerequisites & Setup
 
+## Get Your Project Files Ready
+<img src="images/Screenshot 2026-03-21 022746.png" alt="My Image" width="500">
+--------------------------------------------------------------------------
+
+## connect with the container with ssh 
+<img src="images/Screenshot 2026-03-21 015726.png" alt="My Image" width="500">
+
+
+<img src="images/Screenshot 2026-03-21 015740.png" alt="My Image" width="500">
+
+----------------------------------------------------------------------------------------
+
+## Start docker services and install them also ...
+<img src="images/Screenshot 2026-03-21 015805.png" alt="My Image" width="500">
+
+---------------------------------------------------------------------------------------------
+
+<img src="images/Screenshot 2026-03-21 015838.png" alt="My Image" width="500">
+
+
 Ensure you have Docker and Docker Compose installed on your local machine before proceeding.
 
 ### Step 1: Clone and Configure Environment
-[cite_start]First, clone the repository and set up your secure environment variables[cite: 17, 53].
 
+. First, clone the repository and set up your secure environment variables.
+
+------------------------------
+<img src="images/Screenshot 2026-03-21 015910.png" alt="My Image" width="500">
+
+------------------------------
 ```bash
 # Clone the repo
-git clone [https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git](https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git)
-cd YOUR_REPO_NAME
+git clone https://github.com/chanduo5/docker-three-tier
 
 # Create the active .env file from the example template
 cp .env.example .env
 ```
-[cite_start]*(Note: Never commit your actual `.env` file to version control. Only `.env.example` is tracked[cite: 17, 53].)*
+*(Note: Never commit your actual `.env` file to version control. Only `.env.example` is tracked.)*
 
 ### Step 2: Build and Launch
-[cite_start]Deploy the entire stack using a single Docker Compose command[cite: 42].
+
+Deploy the entire stack using a single Docker Compose command.
 
 ```bash
 docker compose up --build -d
 ```
 > **Terminal Output:**
-> *Replace this placeholder with a screenshot of your terminal showing the successful `docker compose up` build process.*
->
-> ![Terminal Build Output](./assets/terminal-build.png)
+<img src="images/Screenshot 2026-03-21 015928.png" alt="My Image" width="500">
+
 
 ---
 
 ## 🧪 Testing the Application
 
-[cite_start]Once the containers are successfully running, you can verify the deployment through the browser and the command line[cite: 47].
+*Once the containers are successfully running, you can verify the deployment through the browser and the command line.*
 
 ### 1. User Interface Verification
-[cite_start]Open your web browser and navigate to `http://localhost:80`[cite: 24, 48]. You will see the live frontend dashboard confirming the system status.
+
+### Open your web browser and navigate to `http://localhost:80`. You will see the live frontend dashboard confirming the system status.
 
 > **Frontend Dashboard:**
-> *Replace this placeholder with a screenshot of your live web page.*
->
-> ![Frontend UI UI](./assets/frontend-ui.png)
+------------------------------------------------------
+<img src="images/Screenshot 2026-03-21 022300.png" alt="My Image" width="500">
 
+-----------------------------------------------------
 ### 2. API & Proxy Verification
-[cite_start]Nginx dynamically routes traffic from `/api` directly to the backend container[cite: 10, 11, 12, 17]. Test this via your terminal:
+
+Nginx dynamically routes traffic from `/api` directly to the backend container. Test this via your terminal:
+
+<img src="images/Screenshot 2026-03-21 015941.png" alt="My Image" width="500">
 
 ```bash
 # Verify the backend is reachable via the proxy
@@ -118,45 +134,149 @@ curl http://localhost:80/api/health
 
 ---
 
-## 🛠️ Technical Implementations (Strict Requirements)
 
-[cite_start]This project strictly adheres to DevOps best practices to solve common containerization challenges[cite: 18].
-
-* [cite_start]**Dynamic Nginx Configuration:** The backend URL is never hardcoded[cite: 19]. [cite_start]Using an `nginx.conf.template`, the environment variable `$BACKEND_URL` is dynamically injected using `envsubst` during container initialization[cite: 19].
-* [cite_start]**Strict Startup Dependencies:** To prevent the "race condition" where the backend crashes before the database boots, `docker-compose.yml` utilizes strict `healthcheck` dependencies[cite: 19]. [cite_start]The backend waits until MySQL returns a successful `mysqladmin ping` before starting[cite: 19].
-* [cite_start]**Security & Optimization:** Both custom Dockerfiles utilize Multi-Stage builds to keep image sizes extremely low and execute all application processes as a **non-root user** to mitigate security vulnerabilities[cite: 7, 17].
 
 ---
 
+## ✅ STEP 4 — Verify It's Working
+
+### Open the browser dashboard
+```
+http://localhost:80
+```
+You'll see a live status page with green dots for Backend ✅ and Database ✅.
+
+### Test via terminal (curl)
+```bash
+# Test backend root through Nginx
+curl http://localhost:80/api/
+
+# Test database health through Nginx
+curl http://localhost:80/api/health
+```
+
+Expected output for `/api/health`:
+```json
+{
+  "status": "healthy",
+  "service": "backend",
+  "database": "connected",
+  "db_message": "MySQL ping successful",
+  "timestamp": "2024-01-01T00:00:00.000Z"
+}
+```
+
+### Check all containers are healthy
+```bash
+docker compose ps
+```
+<img src="images/Screenshot 2026-03-21 020657.png" alt="My Image" width="500">
+
+
+
+All 3 should show **`(healthy)`** in the STATUS column.
+
+### Watch live logs
+```bash
+docker compose logs -f
+```
+Press `Ctrl+C` to stop watching.
+
+---
+
+## 🔴 STEP 5 — Chaos Test (MySQL Restart)
+
+Open **3 separate terminals**:
+
+**Terminal 1** — watch logs:
+```bash
+docker compose logs -f
+```
+
+**Terminal 2** — poll health endpoint every 2 seconds:
+```bash
+# Mac/Linux
+watch -n 2 curl -s http://localhost:80/api/health
+
+# Windows (PowerShell)
+while ($true) { curl http://localhost:80/api/health; Start-Sleep 2 }
+```
+
+**Terminal 3** — restart MySQL:
+```bash
+docker restart mysql_db
+```
+
+Watch Terminal 2 — the health check will show `503 unhealthy` for about 20–30 seconds, then automatically recover to `200 healthy` without you doing anything.
+
+---
+
+**Chaos Test Logs:**
+
+<img src="images/Screenshot 2026-03-21 022255.png" alt="My Image" width="500">
+
+
+## 🛑 How to Stop the App
+
+```bash
+# Stop but keep the database data
+docker compose down
+
+# Stop AND delete everything including database
+docker compose down -v
+```
+
+---
+
+# After this command the database will stoped and the application will stop working ......
+
+<img src="images/Screenshot 2026-03-21 022906.png" alt="My Image" width="500">
+
+-------------------------------------------
+
+
+## 🛠️ Technical Implementations (Strict Requirements)
+
+**This project strictly adheres to DevOps best practices to solve common containerization challenges.**
+
+**Dynamic Nginx Configuration:** The backend URL is never hardcoded.Using an `nginx.conf.template`, the environment variable `$BACKEND_URL` is dynamically injected using `envsubst` during container initialization.
+
+**Strict Startup Dependencies:** To prevent the "race condition" where the backend crashes before the database boots, `docker-compose.yml` utilizes strict `healthcheck` dependencies .The backend waits until MySQL returns a successful `mysqladmin ping` before starting.
+
+**Security & Optimization:** Both custom Dockerfiles utilize Multi-Stage builds to keep image sizes extremely low and execute all application processes as a **non-root user** to mitigate security vulnerabilities.
+
+---
+
+
+
 ## 🔥 Resilience & Chaos Testing (Failure Scenario)
 
-[cite_start]To prove the system's fault tolerance, a deliberate failure was injected into the environment by forcefully restarting the database container[cite: 24, 49, 50].
+To prove the system's fault tolerance, a deliberate failure was injected into the environment by forcefully restarting the database container.
 
 **The Execution:**
 ```bash
 docker restart <mysql-container-name>
 ```
 
-[cite_start]**System Behavior & Recovery[cite: 50, 51]:**
-1.  **Immediate State:** The Node.js backend immediately detected the dropped database connection. [cite_start]Instead of crashing the container, it gracefully degraded, returning a `503 Service Unavailable` for health checks[cite: 19, 24].
-2.  [cite_start]**Recovery Phase:** Nginx continued to serve the static frontend without interruption[cite: 24].
-3.  **Resolution:** Once the MySQL container completed its boot sequence, the backend automatically re-established the database connection pool.
-4.  [cite_start]**Recovery Time:** Full system health (`200 OK`) was restored in approximately **[Insert Your Time Here, e.g., 18 seconds]** without any manual intervention[cite: 50].
+**System Behavior & Recovery:**
 
-> **Chaos Test Logs:**
-> *Replace this placeholder with a screenshot of your terminal logs showing the backend catching the error and then recovering.*
->
-> ![Chaos Testing Logs](./assets/chaos-test.png)
+1.  **Immediate State:** The Node.js backend immediately detected the dropped database connection.Instead of crashing the container, it gracefully degraded, returning a `503 Service Unavailable` for health checks.
+
+2.  **Recovery Phase:** Nginx continued to serve the static frontend without interruption.
+
+3.  **Resolution:** Once the MySQL container completed its boot sequence, the backend automatically re-established the database connection pool.
+
+4.  **Recovery Time:** Full system health (`200 OK`) was restored in approximately **[Insert Your Time Here, e.g., 18 seconds]** without any manual intervention.
+
+> 
+
 
 ---
 **Author:** Chander Mohan Meena
 ```
-
-***
-
-### How to add your images to this README:
-1.  Create a folder named `assets` inside your main project directory.
-2.  Take your screenshots and save them into that `assets` folder (e.g., save your web page screenshot as `frontend-ui.png`).
-3.  Push the entire project, including the `assets` folder, to your GitHub repository. The links in the markdown above will automatically display the images on your GitHub page!
-
-Are you ready to initialize the Git repository and push this, or do you need the specific terminal commands to get this uploaded to GitHub?
+As I continuously expand my technical skill set, this project was engineered utilizing
+a blend of personal reference notes, community-driven YouTube tutorials, and AI tools
+for optimization and problem-solving. A huge thank you to the creators and the wider
+community for providing such invaluable learning materials.
+```
+# thank you 
