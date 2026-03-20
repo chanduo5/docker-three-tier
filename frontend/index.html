@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Three-Tier Docker App</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #0f172a;
+      color: #e2e8f0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+    h1 { font-size: 2rem; margin-bottom: 0.5rem; color: #38bdf8; }
+    p.subtitle { color: #94a3b8; margin-bottom: 2rem; }
+    .card {
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 12px;
+      padding: 1.5rem 2rem;
+      width: 100%;
+      max-width: 500px;
+      margin-bottom: 1rem;
+    }
+    .card h2 { font-size: 1rem; color: #94a3b8; margin-bottom: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    .status { display: flex; align-items: center; gap: 0.5rem; font-size: 1.1rem; }
+    .dot { width: 10px; height: 10px; border-radius: 50%; background: #64748b; }
+    .dot.green { background: #22c55e; }
+    .dot.red { background: #ef4444; }
+    button {
+      margin-top: 1.5rem;
+      padding: 0.6rem 1.5rem;
+      background: #38bdf8;
+      color: #0f172a;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 0.95rem;
+    }
+    button:hover { background: #7dd3fc; }
+    pre {
+      background: #0f172a;
+      border-radius: 8px;
+      padding: 1rem;
+      font-size: 0.85rem;
+      overflow-x: auto;
+      margin-top: 0.75rem;
+      color: #a3e635;
+      min-height: 48px;
+    }
+  </style>
+</head>
+<body>
+  <h1>🐳 Three-Tier Docker App</h1>
+  <p class="subtitle">Frontend → Nginx → Backend → MySQL</p>
+
+  <div class="card">
+    <h2>Backend Status</h2>
+    <div class="status">
+      <div class="dot" id="be-dot"></div>
+      <span id="be-status">Checking...</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Database Health (via /api/health)</h2>
+    <div class="status">
+      <div class="dot" id="db-dot"></div>
+      <span id="db-status">Checking...</span>
+    </div>
+    <pre id="db-json">Loading...</pre>
+  </div>
+
+  <button onclick="checkAll()">🔄 Refresh Status</button>
+
+  <script>
+    async function checkAll() {
+      // Check backend root
+      try {
+        const r = await fetch('/api/');
+        const data = await r.json();
+        document.getElementById('be-dot').className = 'dot green';
+        document.getElementById('be-status').textContent = data.message || 'OK';
+      } catch (e) {
+        document.getElementById('be-dot').className = 'dot red';
+        document.getElementById('be-status').textContent = 'Backend unreachable';
+      }
+
+      // Check DB health
+      try {
+        const r = await fetch('/api/health');
+        const data = await r.json();
+        const dbOk = data.database === 'connected';
+        document.getElementById('db-dot').className = 'dot ' + (dbOk ? 'green' : 'red');
+        document.getElementById('db-status').textContent = dbOk ? 'Connected' : 'Disconnected';
+        document.getElementById('db-json').textContent = JSON.stringify(data, null, 2);
+      } catch (e) {
+        document.getElementById('db-dot').className = 'dot red';
+        document.getElementById('db-status').textContent = 'Health check failed';
+        document.getElementById('db-json').textContent = String(e);
+      }
+    }
+
+    checkAll();
+  </script>
+</body>
+</html>
